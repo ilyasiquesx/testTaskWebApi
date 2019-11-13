@@ -70,7 +70,7 @@ namespace theTestWebApi.Controllers
 
         // DELETE: api/store/deleteproduct/id Удаляет запись из таблицы "Product", а также удаляет связанные записи из таблицы "Orders".
         [HttpDelete("deleteproduct/{id}")]
-        public ActionResult<IEnumerable<Product>> DeleteProduct(int id)
+        public ActionResult<Product> DeleteProduct(int id)
         {
             Product product = _db.Products.FirstOrDefault(p=>p.ProductId==id);
             if(product != null)
@@ -91,7 +91,7 @@ namespace theTestWebApi.Controllers
         
         // DELETE: api/store/deleteorder/id Удаляет запись из таблицы "Orders".
         [HttpDelete("deleteorder/{id}")]
-        public ActionResult<IEnumerable<Order>> DeleteOrder(int id)
+        public ActionResult<Order> DeleteOrder(int id)
         {
             Order order = _db.Orders.FirstOrDefault(o => o.OrderId == id);
             if(order!=null)
